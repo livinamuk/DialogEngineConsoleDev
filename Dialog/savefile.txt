@@ -1,0 +1,4 @@
+MenaceTrait=false
+Credits=0
+Health=100
+HandgunBullets=give24

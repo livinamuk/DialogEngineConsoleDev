@@ -1,0 +1,81 @@
+#001
+IMG: Mutant
+TEXT: Nobody get's in here without an invitation.
+REPLY: (Menace) I'm not giving you an invitation. [CONDITION:MenaceTrait==true][SPECIAL_COLOR][GOTO:004]
+REPLY: (Invitation) Give invitation. [CONDITION:Invitation==have_item][SPECIAL_COLOR][ACTION:Invitation=take_item()][ACTION:GivenInvitation=true][GOTO:003]
+REPLY: I dont have an invitation. [CONDITION:Invitation==no_item][GOTO:002]
+REPLY: Leave
+
+#002
+IMG: Mutant Angry
+TEXT: Well rack off then.
+REPLY: Leave.
+
+#003
+IMG: Mutant Grinning
+TEXT: Ok, but not so easy, give me 20 credits, then you may enter.
+REPLY: Pay 20 credits[CONDITION:Credits>=20][ACTION:Credits-20][GOTO:004]
+REPLY: I don't have 20 credits. [CONDITION:Credits<20][GOTO:002]
+REPLY: Leave.
+
+#004
+IMG: Mutant Laughing
+TEXT: Come on in then.
+REPLY: Enter the club.[FUSION_ACTION:EnterClub][ACTION:PaidMutant=true]
+
+#005
+IMG: Mutant Grinning
+TEXT: What are you waiting for, go on in.
+REPLY: Leave.
+
+#006
+IMG: Dog Owner
+TEXT: Have you seen my dog?
+REPLY: (Quest) I'll find your dog.[ACTIVATE_QUEST:Find Dog][SPECIAL_COLOR]
+REPLY: I don't have time for this.
+
+#007 
+IMG: Dog Owner
+TEXT: Did you find him yet? His name is Devil.
+REPLY: (Dog) Yes, I think he missed you.[CONDITION:Find Dog==fullfilled][SPECIAL_COLOR][ACTION:Dog=take_item()][COMPLETE_QUEST:Find Dog][GOTO:008]
+REPLY: (Dog) Yes, but I'll be keeping him.[CONDITION:Find Dog==fullfilled][SPECIAL_COLOR][FAIL_QUEST:Find Dog][GOTO:010]
+REPLY: Leave.[CONDITION:Found Dog==fullfilled]
+REPLY: No, I'm still looking.[CONDITION:Dog==no_item]
+
+#008
+IMG: Dog Owner Happy
+TEXT: Unbelieveable. Take this 100 credits for your kindness.
+REPLY: Leave.
+
+#009
+IMG: Dog Owner Happy
+TEXT: Thank you. I wish there was more I could do for you. 
+REPLY: All in a days work don't they say?.
+
+#010
+IMG: Dog Owner Angry
+TEXT: GIVE ME BACK MY DOG!
+REPLY: Nope.
+
+#011
+IMG: Drunk Neutral
+TEXT: Hiccup. I'm soo dwuunk. I lost alll my stuuff.
+REPLY: (Quest) Just relax, I'll find it.[ACTIVATE_QUEST:Find Missing Items][SPECIAL_COLOR]
+REPLY: You're pathetic.
+
+#012
+IMG: Drunk Sad
+TEXT: I'm ruined without my things, did you fiind them? Hiccup. 
+REPLY: (Missing Items) Everything's okay now.[CONDITION:Has Missing Items==true][SPECIAL_COLOR][ACTION:Missing Item=take_item()][COMPLETE_QUEST:Find Missing Items][GOTO:014]
+REPLY: Leave. [CONDITION:Has Missing Items==true]
+REPLY: No, I'm still looking.[CONDITION:Has Missing Items==false]
+
+#013
+IMG: Drunk Happy
+TEXT: Thank you, I was worried I'd never find them.
+REPLY: Don't mention it.
+
+#014
+IMG: Drunk Happy
+TEXT: Thank you. Hiccup. Take this invitation as payment, I'm too dwuuunk to go anywhere. Hiccup.
+REPLY: Don't mention it.

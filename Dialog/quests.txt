@@ -1,0 +1,21 @@
+NAME: Find Dog
+NPC: Dog Owner
+DIALOG_ID_INACTIVE: 6
+DIALOG_ID_ACTIVE: 7
+DIALOG_ID_COMPLETED: 9
+DIALOG_ID_FAILED: 10
+DESCRIPTION: Poor man lost his dog. He's gotta be around here somewhere.
+REQUIREMENT_ITEM: Dog
+REWARD_VALUE: Credits(100)
+REWARD_EXP: 2000
+
+NAME: Find Missing Items
+NPC: Drunk
+DIALOG_ID_INACTIVE: 11
+DIALOG_ID_ACTIVE: 12
+DIALOG_ID_COMPLETED: 13
+DIALOG_ID_FAILED: -1
+DESCRIPTION: Some drunk guy lost his things again.
+REQUIREMENT_FLAG_TRUE: Has Missing Items
+REWARD_ITEM: Invitation
+REWARD_EXP: 1000
